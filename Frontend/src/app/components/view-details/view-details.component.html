@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title text-center">View Project Details</h4>
+                <!-- <button type="button" class="btn-close" #closeButton data-bs-dismiss="modal"></button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="row">
+                <!-- <div class="col-md-6">
+                    <img src="{{imageURL}}{{resProject.image}}" alt="{{resProject.image}}">
+                </div> -->
+                <div class="col-md-12 ms-5">
+                    <div class="modal-body">
+                        <h4>Name: {{resProject.name}}</h4>
+                        Details:<h4 [innerHTML]="resProject.details"></h4>
+                        <h4><a href="{{resProject.demoLink}}">Demo</a></h4>
+                        <h4><a href="{{resProject.gitLink}}">Git</a></h4>
+                    </div>
+                </div>
+                <div class="text-center mb-3">
+                    <button type="button" class="btn btn-danger"  (click)="replyQue(projectId)">View Issue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

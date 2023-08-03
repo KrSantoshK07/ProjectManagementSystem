@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card-sl">
+        <div class="card-image">
+            <img
+                src="https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+        </div>
+
+        <!-- <a class="card-action" href="#"><i class="fa fa-heart"></i></a> -->
+        <div class="card-heading justify-content-between d-flex">
+            <div>
+                <a *ngIf="flag=='private'">{{data.name}}</a>
+                <a *ngIf="flag=='public'" routerLink="/user/queries/{{data._id}}">{{data.name}}</a>
+            </div>
+            <div>
+                <div *ngIf="flag=='private'">
+                    <span class="text-warning" role="button" (click)="editProject(data._id)"><i
+                            class="fa-solid fa-pen-to-square"></i></span>
+                    <span class="mx-2 text-primary" (click)="view(data._id)" ><i class="fa-solid fa-eye"></i></span>
+                    <span class="text-danger" (click)="deleteProject(data._id)"><i class="fa-solid fa-trash"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="card-text" [innerHTML]="data.details">
+        </div>
+        <div class="card-text justify-content-around d-flex">
+            <a href="{{data.demoLink}}" target=”_blank”>Demo</a>
+            <a href="{{data.gitLink}}" target=”_blank”>Git</a>
+        </div>
+        <div class="card-text">
+        </div>
+    </div>
+</div>

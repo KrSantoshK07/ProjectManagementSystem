@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="msg-history container" *ngFor="let issue of resIssue">
+        <div class="incoming-msg-section mt-4">
+            <div class="incoming-msg-img">
+                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+            </div>
+            <div class="incoming-msg-content">
+                <div class="msg-card">
+                    <div class="msg-body">
+                        <p class="message text-dark" [innerHTML]="issue.reply"></p>
+                        <div class="msg-image">
+                            <!-- <img src="https://helostatus.com/wp-content/uploads/2021/09/pic-for-WhatsApp-HD.jpg"> -->
+                            <small class="mx-3">{{issue.userId.name}}</small>
+                        </div>
+                    </div>
+                    <span class="time_date text-end">{{issue.createdAt | date:'short':'IST'}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="issueForm" (ngSubmit)="raiseIssue()">
+        <div class="ckediter text-center mt-5">
+            <ckeditor #editor formControlName="issue" [(ngModel)]="data.issue"></ckeditor>
+            <input type="submit" value="Reply" class="btn btn-success my-3">
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

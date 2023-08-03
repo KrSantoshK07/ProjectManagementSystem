@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <form class="d-flex mt-3">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search"
+                    [(ngModel)]="search">
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let item of resData | search:search">
+                <app-project-card [data]="item" [flag]="'public'"></app-project-card>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

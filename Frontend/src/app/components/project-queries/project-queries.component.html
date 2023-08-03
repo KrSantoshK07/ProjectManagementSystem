@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="msg-history container mt-4" *ngFor="let item of conversation">
+        <div class="incoming-msg-section">
+            <div class="incoming-msg-img">
+                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+            </div>
+            <div class="incoming-msg-content">
+                <div class="msg-card">
+                    <div class="msg-body">
+                        <p class="message text-dark" [innerHTML]="item.reply"></p>
+                        <div class="msg-image">
+                            <small class="mx-3">{{item.userId.name}}</small>
+                        </div>
+                    </div>
+                    <span class="time_date text-end">{{item.createdAt | date:'short':'IST'}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="outgoing-msg-content" >
+    </div> -->
+    </div>
+
+    <form [formGroup]="queryForm" (ngSubmit)="reply()">
+        <div class="ckediter text-center mt-5">
+            <ckeditor #editor formControlName="answer" [(ngModel)]="data.answer"></ckeditor>
+            <input type="submit" value="Reply" class="btn btn-success my-3">
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

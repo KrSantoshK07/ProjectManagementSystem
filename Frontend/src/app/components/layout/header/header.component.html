@@ -1,0 +1,60 @@
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <!-- Brand -->
+    <ul class="navbar-nav flex-row d-none d-md-flex">
+      <li class="nav-item me-3 mb-1 me-lg-1 active">
+        <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/user">
+          <span><i class="fas fa-home fa-lg"></i></span>
+          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+        </a>
+      </li>
+      <li class="nav-item me-3 mb-1 me-lg-1 active">
+        <a *ngIf="isLoggedIn" class="nav-link" routerLink="/user/dashboard">
+          <span><i class="fas fa-home fa-lg"></i></span>
+          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+        </a>
+      </li>
+      <li class="nav-item me-3 mb-1 me-lg-1 active">
+        <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/user">
+          <span class="fw-bold">My Project</span>
+          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+        </a>
+      </li>
+      <li class="nav-item me-3 mb-1 me-lg-1 active">
+        <a *ngIf="isLoggedIn" class="nav-link" routerLink="/user/dashboard">
+          <span class="fw-bold">My Project</span>
+          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+        </a>
+      </li>
+    </ul>
+    <!-- Left elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row">
+      <li *ngIf="isLoggedIn">
+        <a class="nav-link fw-bold text-dark"
+          routerLink="/user/projects">Projects</a>
+      </li>
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link d-sm-flex align-items-sm-center" *ngIf="isLoggedIn">
+          <img src="{{imageUrl}}{{profilePic}}" class="rounded-circle" height="22" loading="lazy" />
+          <strong class="d-none d-sm-block ms-1" *ngIf="isLoggedIn">{{name}}</strong>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1" *ngIf="isLoggedIn">
+        <a class="nav-link">
+          <span class="fw-bold logout" (click)="logout()">Logout</span>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1" *ngIf="!isLoggedIn">
+        <a class="nav-link">
+          <span class="fw-bold logout" (click)="signIn()">Login</span>
+        </a>
+      </li>
+    </ul>
+    <!-- Right elements -->
+  </div>
+</nav>
+<!-- Navbar -->

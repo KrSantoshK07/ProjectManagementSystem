@@ -1,0 +1,102 @@
+<app-header></app-header>
+<div class="container">
+    <div class="signin-signup">
+        <form [formGroup]="myForm" (ngSubmit)="register()">
+            <h2 class="title">Sign Up</h2>
+            <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Name" formControlName="name" />
+                <div class="text-end mt-0" *ngIf="Data['name'].invalid && Data['name'].touched">
+                    <small *ngIf="Data['name'].errors && Data['name'].errors['required']" class="text-danger">Name is
+                        Required </small>
+                    <small *ngIf="Data['name'].errors && Data['name'].errors['pattern']" class="text-danger">Name must
+                        be in alphabet
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fa-solid fa-at"></i>
+                <input type="text" placeholder="Username" formControlName="username" />
+                <div class="text-end mt-0" *ngIf="Data['username'].invalid && Data['username'].touched">
+                    <small *ngIf="Data['username'].errors && Data['username'].errors['required']"
+                        class="text-danger">Username is
+                        Required </small>
+                    <small *ngIf="Data['username'].errors && Data['username'].errors['pattern']"
+                        class="text-danger">Username must
+                        be Valid
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="text" placeholder="Email" formControlName="email" />
+                <div class="text-end mt-0" *ngIf="Data['email'].invalid && Data['email'].touched">
+                    <small *ngIf="Data['email'].errors && Data['email'].errors['required']" class="text-danger">Email is
+                        Required </small>
+                    <small *ngIf="Data['email'].errors && Data['email'].errors['pattern']" class="text-danger">Email
+                        must
+                        be Valid
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" formControlName="password" />
+                <div class="text-end mt-0" *ngIf="Data['password'].invalid && Data['password'].touched">
+                    <small *ngIf="Data['password'].errors && Data['password'].errors['required']"
+                        class="text-danger">Password is
+                        Required </small>
+                    <small *ngIf="Data['password'].errors && Data['password'].errors['pattern']"
+                        class="text-danger">Password must
+                        be Valid
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm Password" formControlName="cpassword" />
+                <div class="text-end mt-0" *ngIf="Data['cpassword'].invalid && Data['cpassword'].touched">
+                    <small *ngIf="Data['cpassword'].errors && Data['cpassword'].errors['required']"
+                        class="text-danger">Confirm Password is
+                        Required </small>
+                    <small *ngIf="Data['cpassword'].errors && Data['cpassword'].errors['pattern']"
+                        class="text-danger">Confirm Password must
+                        be Valid
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fa-solid fa-address-book"></i>
+                <input type="text" placeholder="Contact" formControlName="contact" />
+            </div>
+
+            <div class="input-field">
+                <i class="fa-solid fa-image"></i>
+                <input type="file" class="mt-3" (change)="upImage($event)" formControlName="image"/>
+                <div class="text-end mt-0" *ngIf="Data['image'].invalid && Data['image'].touched">
+                    <small *ngIf="Data['image'].errors && Data['image'].errors['required']"
+                        class="text-danger">Confirm Password is
+                        Required </small>
+                </div>
+            </div>
+            
+            <input type="submit" value="register" class="btn">
+        </form>
+    </div>
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>One of us?</h3>
+                <p>Please login from here. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio minus natus est</p>
+                <button class="btn transparent" id="sign-up-btn" (click)="login()">Sign In</button>
+            </div>
+            <img src="assets/images/test.png" class="image" alt="">
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

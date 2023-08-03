@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container">
+    <div class="signin-signup">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h2 class="title">Sign In</h2>
+            <div class="input-field">
+                <i class="fa-solid fa-at"></i>
+                <input type="text" placeholder="Username or Email" formControlName="username" />
+                <div class=" mt-0" *ngIf="Data['username'].invalid && Data['username'].touched">
+                    <small *ngIf="Data['username'].errors && Data['username'].errors['required']"
+                        class="text-danger">Password is
+                        Required </small>
+                    <small *ngIf="Data['username'].errors && Data['username'].errors['pattern']"
+                        class="text-danger">Password must
+                        be Valid
+                    </small>
+                </div>
+            </div>
+
+            <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" formControlName="password" />
+                <div class="text-end mt-0" *ngIf="Data['password'].invalid && Data['password'].touched">
+                    <small *ngIf="Data['password'].errors && Data['password'].errors['required']"
+                        class="text-danger">Password is Required </small>
+                    <small *ngIf="Data['password'].errors && Data['password'].errors['pattern']"
+                        class="text-danger">Password must be Valid
+                    </small>
+                </div>
+            </div>
+
+            <input type="submit" value="Login" class="btn" />
+        </form>
+        <p class="social-text text-center">Or Sign in with social platforms</p>
+        <div class="social-media">
+            <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New here?</h3>
+                <p>To become a part of our website please Register yourself from here.</p>
+                <button class="btn transparent" id="sign-up-btn" (click)="signUp()">Sign Up</button>
+            </div>
+            <img src="assets/images/login.png" class="image" alt="">
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
