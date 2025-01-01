@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:8890/api',
+  apiURL: 'https://project-management-system-vpz2.vercel.app/api',
   imageURL: 'http://localhost:8890/uploads/profile/'
 };
 
