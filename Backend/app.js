@@ -12,9 +12,9 @@ import errorHandler from './middlewares/errorHandler.js';
 app.use(express.json());
 app.use(cors());
 
-app.use('/' (req, res) => {
-    res.status(200).json(status: 200, message: 'Hello World', data: []);
-})
+//app.use('/' (req, res) => {
+//    res.status(200).json(status: 200, message: 'Hello World', data: []);
+//})
 app.use('/api/user', authRoute);
 app.use('/api/project', projectRoute);
 
